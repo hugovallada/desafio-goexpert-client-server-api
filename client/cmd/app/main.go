@@ -20,11 +20,11 @@ var (
 func main() {
 	value, err := getDolarValueInBRL()
 	if err != nil {
-		log.Fatal("Não foi possível completar o processamento!", err)
+		log.Fatal("Não foi possível completar o processamento!")
 	}
 	err = saveToFile(value)
 	if err != nil {
-		log.Fatal("Não foi possível completar o processamento!", err)
+		log.Fatal("Não foi possível completar o processamento!")
 	}
 }
 

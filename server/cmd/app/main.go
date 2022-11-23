@@ -48,7 +48,9 @@ func saveToDB(price conversion.USDBRL) error {
 		return err
 	}
 	defer db.Close()
-	stmt, err := db.Prepare("insert into prices (code, codein, name, high, low, varBid, pctChange, bid, ask, timestamp, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+	stmt, err := db.Prepare(
+		"insert into prices (code, codein, name, high, low, varBid, pctChange, bid, ask, timestamp, create_date)" +
+			"values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
 	if err != nil {
 		return err
 	}

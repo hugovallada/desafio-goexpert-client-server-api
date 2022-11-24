@@ -20,8 +20,9 @@ var (
 func init() {
 	db, err := sql.Open("sqlite3", "./data/price.db")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
+	defer db.Close()
 	_, tableCheck := db.Query("select * from prices")
 	if tableCheck != nil {
 		log.Println("Criando a tabela 'prices'")

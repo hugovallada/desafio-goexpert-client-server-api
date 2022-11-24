@@ -14,7 +14,7 @@ import (
 
 var (
 	URL       = "http://localhost:8080/cotacao"
-	FILE_PATH = "./files/conversao.txt"
+	FILE_PATH = "./conversao.txt"
 )
 
 func main() {

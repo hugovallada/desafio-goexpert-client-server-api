@@ -15,10 +15,11 @@ import (
 var (
 	URL                    = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
 	INTERNAL_ERROR_MESSAGE = "Erro interno do servidor"
+	DB_PATH                = "./price.db"
 )
 
 func init() {
-	db, err := sql.Open("sqlite3", "./data/price.db")
+	db, err := sql.Open("sqlite3", DB_PATH)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -70,7 +71,7 @@ func GetPrice(w http.ResponseWriter, r *http.Request) {
 func saveToDB(price conversion.USDBRL) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Millisecond)
 	defer cancel()
-	db, err := sql.Open("sqlite3", "./data/price.db")
+	db, err := sql.Open("sqlite3", DB_PATH)
 	if err != nil {
 		return err
 	}
